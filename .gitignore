@@ -7,3 +7,4 @@ __pycache__/
 *.png
 frontend/temp.jpg
 qdrant_data/
+stanford-dogs-dataset.zip
