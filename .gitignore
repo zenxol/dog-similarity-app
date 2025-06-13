@@ -1,0 +1,9 @@
+data/
+__pycache__/
+*.pyc
+*.pkl
+*.jpg
+*.jpeg
+*.png
+frontend/temp.jpg
+qdrant_data/
