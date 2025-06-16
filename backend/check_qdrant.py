@@ -1,3 +1,4 @@
+# check_qdrant.py - Checks connection to Qdrant and prints vector county
 from qdrant_client import QdrantClient
 
 client = QdrantClient(host="localhost", port=6333)
