@@ -1,0 +1,8 @@
+streamlit
+openai
+qdrant-client
+pillow
+torch
+torchvision
+numpy
+kaggle
