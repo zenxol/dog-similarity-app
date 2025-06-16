@@ -1,9 +1,11 @@
+# ingest_images.py - Extracts feature vectors from dog images and uploads them to Qdrant
 import os
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams, PointStruct
 
 from backend.image_utils import extract_features
 
+# Connect to local Qdrant instance
 client = QdrantClient(host="localhost", port=6333)
 collection_name = "dog_images"
 
@@ -19,6 +21,7 @@ client.create_collection(
 
 dataset_dir = "data/images/Images"
 point_id = 0
+# Traverse dataset directory: each subfolder is a dog breed
 for breed in os.listdir(dataset_dir):
     breed_path = os.path.join(dataset_dir, breed)
     if not os.path.isdir(breed_path):
@@ -30,6 +33,7 @@ for breed in os.listdir(dataset_dir):
 
         try:
             vector = extract_features(image_path)
+            # Upload the vector and metadata to Qdrant
             client.upsert(
                 collection_name=collection_name,
                 points=[
